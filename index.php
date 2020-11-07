@@ -35,3 +35,9 @@ function getAge($year) {
 }
 
 echo "<br>" . getAge(1987);
+
+function getYear($age){
+    return 2020 - $age;
+}
+
+echo "<br>" . getYear(23);
