@@ -10,10 +10,21 @@ class Food{
     }
 }
 
+class Car{
+    public string $name;
+    public string $model;
+
+    public function __construct($name, $model){
+        $this->name = $name;
+        $this->model = $model;
+    }
+}
+
 class Person {
     private string $name;
     private int $year;
     public float $totalCalories = 100.0;
+    public ?Car $car;
 
     public function __construct($name, $year){
         $this->name = $name;
@@ -42,6 +53,19 @@ class Person {
     public function eat(Food $food){
         $this->totalCalories = $this->totalCalories + $food->calories;
     }
+
+    public function getCar(){
+        if ($this->car != null){
+            return "My car name is: " . $this->car->name . "<br>"
+             . "The model is: " . $this->car->model . "<br>";
+        }
+        else {
+            return "I do not have a car :(((";
+        }
+    }
+     public function setCar(Car $car){
+         $this->car = $car;
+     }
 
 }
 
@@ -111,3 +135,7 @@ echo "<br>";
 $nargiza->learnSong("18 zhash", "oooooooon segiiiiiz zhaaaaaash");
 $nargiza->singASong("18 zhash");
 
+$mers = new Car("Lexus", "RX 350");
+$aiat->setCar($mers);
+echo "<br>";
+echo $aiat->getCar();
