@@ -7,5 +7,11 @@
 </head>
 <body>
     <h1>Home</h1>
+
+    <ul>
+        <li><a href="/login">Login</a></li>
+        <li><a href="/posts">Posts</a></li>
+    </ul>
+
 </body>
 </html>

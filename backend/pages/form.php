@@ -6,8 +6,8 @@
     <title>Form</title>
 </head>
 <body>
-    
-    <form action="/fromForm">
+    <h1>Login</h1>
+    <form action="/fromForm" method="post">
         <label for="login">Login:</label>
         <input id="login" type="text" name="login">
         <br>
