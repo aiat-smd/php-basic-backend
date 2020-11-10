@@ -14,10 +14,12 @@
     <ul>
         <?php if($authorizedUser == null): ?>
             <li><a href="/login">Login</a></li>
+            <p> Log in to read posts </P>
         <?php else: ?>
             <li><a href="/logout">Logout</a></li>
+            <li><a href="/posts">Posts</a></li>
         <?php endif; ?>
-        <li><a href="/posts">Posts</a></li>
+        
     </ul>
 
 </body>

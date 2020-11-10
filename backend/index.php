@@ -3,6 +3,19 @@ include_once "./database.php";
 
 session_start();
 
+$db = null;
+
+function db(){
+    if ($db == null){
+        $db = new FakeDatabase();
+    }
+    return $db;
+}
+
+function redirect($uri){
+    header("Location: " . $uri);
+}
+
 $uri = $_SERVER["REQUEST_URI"];
 $method = $_SERVER["REQUEST_METHOD"];
 
@@ -17,6 +30,9 @@ if ($uri == "/"){
 }
 elseif ($uri =="/posts") {
     include "./pages/posts.php";
+}
+elseif (preg_match("/\/post.*/", $uri)) {
+    include "./pages/read_post.php";
 }
 elseif ($uri =="/logout") {
     include "./pages/logout.php";

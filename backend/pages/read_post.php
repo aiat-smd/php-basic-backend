@@ -1,9 +1,20 @@
 <?php 
-$posts = db()->getPosts();
-
 if($authorizedUser == null){
     redirect("/");
 }
+$posts = db()->getPosts();
+$id = $_GET["id"];
+$post = null;
+
+foreach($posts as $i){
+    if ($i->id == $id){
+        $post = $i;
+    }
+}
+if ($post == null){
+    header("Location: /notFound");
+}
+$post->incrementViews();
 ?>
 
 <!DOCTYPE html>
@@ -14,18 +25,12 @@ if($authorizedUser == null){
     <title>Posts</title>
 </head>
 <body>
-    <h3><a href="/">Home</a></h3>
-    <h1>Posts</h1>
-    <?php foreach($posts as $post): ?>
+    <h1><?= $post->title ?></h1>
         <div class="post">
-            <h4><?= $post->title ?></h4>
             <p><?= $post->description ?></p>
             <p><?= $post->author ?></p>
-            <p>Views: <?= $post->views ?></p>
+            <p><?= $post->content ?></p>
 
-            <a href="/post?id=<?= $post->id ?>">Read more</a>
         </div>
-        <hr>
-    <?php endforeach; ?>
 </body>
 </html>

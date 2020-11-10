@@ -1,6 +1,6 @@
 <?php
 
-$db = new FakeDatabase();
+$db = db();
 
 $login = $_POST["login"];
 $password = $_POST["password"];
