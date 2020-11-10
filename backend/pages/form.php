@@ -1,3 +1,10 @@
+<?php
+$message = "";
+if ($_GET["message"]){
+    $message = $_GET["message"];
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,6 +15,11 @@
 <body>
     <h1>Login</h1>
     <form action="/fromForm" method="post">
+        <p> <?php
+            if ( $message != ""){
+                echo $message;
+            }?>
+        </p>
         <label for="login">Login:</label>
         <input id="login" type="text" name="login">
         <br>

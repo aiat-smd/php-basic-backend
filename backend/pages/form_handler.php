@@ -13,7 +13,8 @@ foreach ($db->getUsers() as $currentUser) {
 }
 
 if ($user != null){
-    echo "Authorized user: " . $user->name;
+    $_SESSION["user"] = $user;
+    header("Location: /");
 }else{
-    echo "User not found";
+    header("Location: /login?message=User not found");
 }

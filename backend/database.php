@@ -6,9 +6,9 @@ class FakeDatabase{
 
     public function getUsers(){
         return[
-            new User("aiat_smd", "aiat12", "Aiat"),
-            new User("aibek", "aibek12", "Aibek"),
-            new User("nurbek", "nurbek12", "Nurbek"),
+            new User("aiat_smd", "aiat123", "Aiat"),
+            new User("aibek", "aibek123", "Aibek"),
+            new User("nurbek", "nurbek123", "Nurbek"),
         ];
     }
 }
